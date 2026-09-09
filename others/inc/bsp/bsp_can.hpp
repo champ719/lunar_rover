@@ -15,6 +15,11 @@ struct can_err_s
 {
 	FDCAN_HandleTypeDef* err_hcan;  // initialized as nullptr in C++ 11 and later
 	uint32_t err_bits;
+	uint32_t hal_error;
+	uint32_t last_protocol_error;
+	uint32_t tx_error_cnt;
+	uint32_t rx_error_cnt;
+	uint32_t bus_off;
 };
 
 /* always check CubeMX to ensure the FDCAN initialization settings match */
@@ -34,7 +39,7 @@ class Bsp_CAN
 
 	void Start() const
 	{
-		HAL_FDCAN_Start(m_handle);
+		if (HAL_FDCAN_Start(m_handle) != HAL_OK) Error_Handler();
 		HAL_FDCAN_ActivateNotification(m_handle, FDCAN_IT_RX_FIFO0_NEW_MESSAGE | FDCAN_IT_BUS_OFF |
 			FDCAN_IT_ERROR_PASSIVE | FDCAN_IT_ERROR_WARNING, 0);
 	}
@@ -42,7 +47,7 @@ class Bsp_CAN
 	{
 		if (HAL_FDCAN_Stop(m_handle) == HAL_OK)
 		{
-			HAL_FDCAN_Start(m_handle);
+			if (HAL_FDCAN_Start(m_handle) != HAL_OK) Error_Handler();
 			HAL_FDCAN_ActivateNotification(m_handle, FDCAN_IT_RX_FIFO0_NEW_MESSAGE | FDCAN_IT_BUS_OFF |
 			FDCAN_IT_ERROR_PASSIVE | FDCAN_IT_ERROR_WARNING, 0);
 		}

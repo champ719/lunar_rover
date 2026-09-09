@@ -46,8 +46,17 @@ void HAL_FDCAN_ErrorStatusCallback(FDCAN_HandleTypeDef *hfdcan, uint32_t ErrorSt
 {
 	if (hfdcan == abc_can3.m_handle)
 	{
+		FDCAN_ErrorCountersTypeDef error_counters {};
+		FDCAN_ProtocolStatusTypeDef protocol_status {};
+		HAL_FDCAN_GetErrorCounters(hfdcan, &error_counters);
+		HAL_FDCAN_GetProtocolStatus(hfdcan, &protocol_status);
 		abc_can3.err.err_hcan = hfdcan;
 		abc_can3.err.err_bits = ErrorStatusITs;
+		abc_can3.err.hal_error = HAL_FDCAN_GetError(hfdcan);
+		abc_can3.err.last_protocol_error = protocol_status.LastErrorCode;
+		abc_can3.err.tx_error_cnt = error_counters.TxErrorCnt;
+		abc_can3.err.rx_error_cnt = error_counters.RxErrorCnt;
+		abc_can3.err.bus_off = protocol_status.BusOff;
 		++abc_can3.err_cnt;
 	}
 }

@@ -6,7 +6,8 @@
 
 Timebase_Timer micro_base;
 
-Bsp_CAN abc_can3(&hfdcan3, false, false, false);
+/* Match MX_FDCAN3_Init(): standard-ID classic CAN frames for DAMIAO motors. */
+Bsp_CAN abc_can3(&hfdcan3, false, true, true);
 
 constexpr Motor_DM_N::param_factor_s j4340_limited = Motor_DM_N::FacZoom(3.14159f, 10.f, 28.f);
 constexpr Motor_DM_N::param_factor_s j4340_unlimited = Motor_DM_N::FacZoom(6.28319f, 10.f, 28.f);

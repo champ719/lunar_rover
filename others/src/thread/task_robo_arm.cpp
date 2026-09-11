@@ -8,6 +8,7 @@ extern Joint j3_left;
 extern Joint j4_left;
 extern Joint j5_left;
 extern Joint j6_left;
+extern Joint j7_left;
 
 
 /* implements the CubeMX "roboARM" thread (weak stub in freertos.c) */
@@ -22,6 +23,7 @@ void roboARM_task(void *argument)
 	osDelay(1);
 	j5_left.Ctrl(order_byte_e::disable);
 	j6_left.Ctrl(order_byte_e::disable);
+	j7_left.Ctrl(order_byte_e::disable);
 	osDelay(1);
 	j1_left.Ctrl(order_byte_e::clear_error);
 	j2_left.Ctrl(order_byte_e::clear_error);
@@ -30,6 +32,7 @@ void roboARM_task(void *argument)
 	osDelay(1);
 	j5_left.Ctrl(order_byte_e::clear_error);
 	j6_left.Ctrl(order_byte_e::clear_error);
+	j7_left.Ctrl(order_byte_e::clear_error);
 	osDelay(1);
 	j1_left.Ctrl(order_byte_e::enable);
 	j2_left.Ctrl(order_byte_e::enable);
@@ -38,6 +41,7 @@ void roboARM_task(void *argument)
 	osDelay(1);
 	j5_left.Ctrl(order_byte_e::enable);
 	j6_left.Ctrl(order_byte_e::enable);
+	j7_left.Ctrl(order_byte_e::enable);
 	osDelay(1);
 	for (;;)
 	{
@@ -48,6 +52,7 @@ void roboARM_task(void *argument)
 		osDelay(1);
 		j5_left.LoadTarget();
 		j6_left.LoadTarget();
+		j7_left.LoadTarget();
 		osDelay(1);
 	}
 }

@@ -38,19 +38,20 @@ void MX_FDCAN3_Init(void)
 
   /* USER CODE END FDCAN3_Init 1 */
   hfdcan3.Instance = FDCAN3;
-  hfdcan3.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
+  hfdcan3.Init.FrameFormat = FDCAN_FRAME_FD_BRS;
   hfdcan3.Init.Mode = FDCAN_MODE_NORMAL;
-  hfdcan3.Init.AutoRetransmission = DISABLE;
-  hfdcan3.Init.TransmitPause = DISABLE;
-  hfdcan3.Init.ProtocolException = DISABLE;
-  hfdcan3.Init.NominalPrescaler = 6;
-  hfdcan3.Init.NominalSyncJumpWidth = 1;
-  hfdcan3.Init.NominalTimeSeg1 = 7;
-  hfdcan3.Init.NominalTimeSeg2 = 2;
-  hfdcan3.Init.DataPrescaler = 1;
-  hfdcan3.Init.DataSyncJumpWidth = 1;
-  hfdcan3.Init.DataTimeSeg1 = 1;
-  hfdcan3.Init.DataTimeSeg2 = 1;
+  hfdcan3.Init.AutoRetransmission = ENABLE;
+  hfdcan3.Init.TransmitPause = ENABLE;
+  hfdcan3.Init.ProtocolException = ENABLE;
+  /* f_FDCAN = 120 MHz: 120 MHz / (3 * (1 + 14 + 5)) = 2 Mbps, sample point 75%. */
+  hfdcan3.Init.NominalPrescaler = 3;
+  hfdcan3.Init.NominalSyncJumpWidth = 10;
+  hfdcan3.Init.NominalTimeSeg1 = 29;
+  hfdcan3.Init.NominalTimeSeg2 = 10;
+  hfdcan3.Init.DataPrescaler = 3;
+  hfdcan3.Init.DataSyncJumpWidth = 5;
+  hfdcan3.Init.DataTimeSeg1 = 14;
+  hfdcan3.Init.DataTimeSeg2 = 5;
   hfdcan3.Init.MessageRAMOffset = 0;
   hfdcan3.Init.StdFiltersNbr = 1;
   hfdcan3.Init.ExtFiltersNbr = 0;
@@ -81,6 +82,14 @@ void MX_FDCAN3_Init(void)
     {
       Error_Handler();
     }
+  }
+
+  /* Keep the Message RAM watchdog disabled (WDC = 0) unless deliberate RAM
+     handshake supervision is required. A WDI event is then a real fault,
+     not an unintended non-default watchdog configuration. */
+  if (HAL_FDCAN_ConfigRamWatchdog(&hfdcan3, 0) != HAL_OK)
+  {
+    Error_Handler();
   }
   /* USER CODE END FDCAN3_Init 2 */
 

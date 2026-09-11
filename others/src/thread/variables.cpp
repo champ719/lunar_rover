@@ -6,11 +6,15 @@
 
 Timebase_Timer micro_base;
 
-Bsp_CAN abc_can3(&hfdcan3, false, false, false);
+/* Match MX_FDCAN3_Init(): standard-ID classic CAN frames for DAMIAO motors. */
+Bsp_CAN abc_can3(&hfdcan3, false, true, true);
 
+constexpr Motor_DM_N::param_factor_s j3507 = Motor_DM_N::FacZoom(6.28319f, 30.f, 10.f);
 constexpr Motor_DM_N::param_factor_s j4340_limited = Motor_DM_N::FacZoom(3.14159f, 10.f, 28.f);
 constexpr Motor_DM_N::param_factor_s j4340_unlimited = Motor_DM_N::FacZoom(6.28319f, 10.f, 28.f);
-constexpr Motor_DM_N::param_factor_s j4310_facs = Motor_DM_N::FacZoom(6.28319f, 30.f, 10.f);
+constexpr Motor_DM_N::param_factor_s j4310_unlimited = Motor_DM_N::FacZoom(6.28319f, 30.f, 10.f);
+constexpr Motor_DM_N::param_factor_s j4310_limited = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
+constexpr Motor_DM_N::param_factor_s j8009p_limited = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
 
 __attribute__((used)) Joint j1_left(0x11, 0x01, j4340_limited, abc_can3,
 	{1.44042873f}, {3.f, -3.f}, 1.44042873f,
@@ -42,5 +46,10 @@ __attribute__((used)) Joint j6_left(0x16, 0x06, j4310_facs, abc_can3,
 	{544, 816, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, -0.00671127299f});
 
-/* 6 DAMIAO joint motors on FDCAN3 (motor_id 0x01..0x06, host_id 0x11..0x16).
+__attribute__((used)) Joint j7_left(0x17, 0x07, j4310_facs, abc_can3,
+	{-0.00671127299f}, {3.f, -3.f}, -0.00671127299f,
+	{544, 816, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
+	{6.f, 2.f, 0.f, -0.00671127299f});
+
+/* 7 DAMIAO joint motors on FDCAN3 (motor_id 0x01..0x06, host_id 0x11..0x16).
    Add more Joint instances here (e.g. j7: 0x17/0x07) if the arm grows. */

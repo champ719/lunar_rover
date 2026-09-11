@@ -137,7 +137,6 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_StartDefaultTask */
 __weak void StartDefaultTask(void *argument)
 {
-  (void)argument;
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
@@ -158,7 +157,6 @@ __weak void StartDefaultTask(void *argument)
 /* USER CODE END Header_Error_tasks */
 __weak void Error_tasks(void *argument)
 {
-  (void)argument;
   /* USER CODE BEGIN Error_tasks */
   /* Infinite loop */
   for(;;)
@@ -177,7 +175,6 @@ __weak void Error_tasks(void *argument)
 /* USER CODE END Header_roboARM_task */
 __weak void roboARM_task(void *argument)
 {
-  (void)argument;
   /* USER CODE BEGIN roboARM_task */
   /* Infinite loop */
   for(;;)

@@ -9,6 +9,7 @@ extern Joint j3_left;
 extern Joint j4_left;
 extern Joint j5_left;
 extern Joint j6_left;
+extern Joint j7_left;
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 {

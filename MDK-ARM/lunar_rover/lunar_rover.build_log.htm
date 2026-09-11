@@ -27,12 +27,21 @@ Project File Date:  09/07/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.24', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'lunar_rover'
-compiling task_robo_arm.cpp...
+../others/src/thread/variables.cpp(16): warning: unused variable 'j3507' [-Wunused-const-variable]
+   16 | constexpr Motor_DM_N::param_factor_s j3507 = Motor_DM_N::FacZoom(6.28319f, 30.f, 10.f);
+      |                                      ^~~~~
+../others/src/thread/variables.cpp(20): warning: unused variable 'j4310_limited' [-Wunused-const-variable]
+   20 | constexpr Motor_DM_N::param_factor_s j4310_limited = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
+      |                                      ^~~~~~~~~~~~~
+../others/src/thread/variables.cpp(21): warning: unused variable 'j8009p_limited' [-Wunused-const-variable]
+   21 | constexpr Motor_DM_N::param_factor_s j8009p_limited = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
+      |                                      ^~~~~~~~~~~~~~
+3 warnings generated.
 compiling variables.cpp...
 linking...
-Program Size: Code=36156 RO-data=1076 RW-data=20 ZI-data=22732  
+Program Size: Code=36132 RO-data=1076 RW-data=20 ZI-data=22732  
 FromELF: creating hex file...
-"lunar_rover\lunar_rover.axf" - 0 Error(s), 0 Warning(s).
+"lunar_rover\lunar_rover.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -55,7 +64,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE@6.1.1
       Include file:  CMSIS/Core/Include/tz_context.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -1,7 +1,11 @@
 #include "bsp_tim.hpp"
 #include "roboarm.hpp"
 
-
+/* 
+j1 8009p 上电零位 -0.11054, t_ff
+j2 8009p pos 1.78720f ~ 0 ~ -2.37291f, t_ff
+j3 8009p pos 2.00628f ~ 0 ~ -2π ~ 5.0f, t_ff
+*/
 /* place all variables in one file to avoid initialization order issues */
 
 Timebase_Timer micro_base;
@@ -18,37 +22,37 @@ constexpr Motor_DM_N::param_factor_s j8009p_limited = Motor_DM_N::FacZoom(3.1415
 
 __attribute__((used)) Joint j1_left(0x11, 0x01, j4340_limited, abc_can3,
 	{1.44042873f}, {3.f, -3.f}, 1.44042873f,
-	{592, 848, 0.f, 0.f, 0.f, 0.f, 0.f},
+	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, 1.44042873f});
 
 __attribute__((used)) Joint j2_left(0x12, 0x02, j4340_limited, abc_can3,
 	{-0.01715076f}, {3.f, -3.f}, -0.51715076f,
-	{1232, 1136, 0.f, 0.f, 0.f, 0.f, 0.f},
+	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, -0.51715076f});
 
 __attribute__((used)) Joint j3_left(0x13, 0x03, j4340_unlimited, abc_can3,
 	{-0.0510056764f}, {3.f, -3.f}, -0.0510056764f,
-	{592, 656, 0.f, 0.f, 0.f, 0.f, 0.f},
+	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, -0.0510056764f});
 
 __attribute__((used)) Joint j4_left(0x14, 0x04, j4340_unlimited, abc_can3,
 	{-1.64398444f}, {3.f, -3.f}, -1.14398444,
-	{768, 1200, 0.2f, 5.f, 2.f, 0.5f, 0.f},
+	{0, 0, 0.2f, 5.f, 2.f, 0.5f, 0.f},
 	{6.f, 2.f, 0.f, -1.14398444f});
 
-__attribute__((used)) Joint j5_left(0x15, 0x05, j4310_facs, abc_can3,
+__attribute__((used)) Joint j5_left(0x15, 0x05, j4310_unlimited, abc_can3,
 	{0.0774672702f}, {3.f, -3.f}, 0.0774672702f,
-	{496, 752, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
+	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, 0.0774672702f});
 
-__attribute__((used)) Joint j6_left(0x16, 0x06, j4310_facs, abc_can3,
+__attribute__((used)) Joint j6_left(0x16, 0x06, j4310_unlimited, abc_can3,
 	{-0.00671127299f}, {3.f, -3.f}, -0.00671127299f,
-	{544, 816, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
+	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, -0.00671127299f});
 
-__attribute__((used)) Joint j7_left(0x17, 0x07, j4310_facs, abc_can3,
+__attribute__((used)) Joint j7_left(0x17, 0x07, j4310_unlimited, abc_can3,
 	{-0.00671127299f}, {3.f, -3.f}, -0.00671127299f,
-	{544, 816, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
+	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, -0.00671127299f});
 
 /* 7 DAMIAO joint motors on FDCAN3 (motor_id 0x01..0x06, host_id 0x11..0x16).

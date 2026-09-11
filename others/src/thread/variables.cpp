@@ -4,7 +4,11 @@
 /* 
 j1 8009p 上电零位 -0.11054, t_ff
 j2 8009p pos 1.78720f ~ 0 ~ -2.37291f, t_ff
-j3 8009p pos 2.00628f ~ 0 ~ -2π ~ 5.0f, t_ff
+j3 4340p pos , t_ff
+j4 4310P pos , t_ff
+J5 4310P pos , t_ff
+J6 4310 pos , t_ff
+J7 3507 pos , t_ff
 */
 /* place all variables in one file to avoid initialization order issues */
 

@@ -48,7 +48,8 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 # C++ business modules (mirror the "others" group of MDK-ARM/lunar_rover.uvprojx)
-set(USER_CXX_SOURCES
+set(USER_SOURCES
+    others/src/app/Remote.c
     others/src/app/motor_dm.cpp
     others/src/bsp/bsp_can.cpp
     others/src/callcallback/can_callback.cpp
@@ -61,7 +62,7 @@ set(USER_CXX_SOURCES
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    ${USER_CXX_SOURCES}
+    ${USER_SOURCES}
 )
 
 # Add include paths

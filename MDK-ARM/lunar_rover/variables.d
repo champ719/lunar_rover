@@ -27,8 +27,11 @@ lunar_rover/variables.o: ..\others\src\thread\variables.cpp \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pwr_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_usb.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h \
-  ..\others\inc\obj\roboarm.hpp ..\others\inc\app\motor_dm.hpp \
-  ..\others\inc\bsp\bsp_can.hpp ..\Core\Inc\fdcan.h ..\Core\Inc\main.h
+  ..\others\inc\algorithm\mathetics.hpp ..\others\inc\obj\roboarm.hpp \
+  ..\others\inc\app\motor_dm.hpp ..\others\inc\bsp\bsp_can.hpp \
+  ..\Core\Inc\fdcan.h ..\Core\Inc\main.h

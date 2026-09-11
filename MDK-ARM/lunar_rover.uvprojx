@@ -401,6 +401,11 @@
               <FilePath>../Core/Src/main.c</FilePath>
             </File>
             <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/dma.c</FilePath>
+            </File>
+            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/gpio.c</FilePath>
@@ -414,6 +419,11 @@
               <FileName>fdcan.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/fdcan.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/usart.c</FilePath>
             </File>
             <File>
               <FileName>stm32h7xx_it.c</FileName>
@@ -749,6 +759,16 @@
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32h7xx_hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32h7xx_hal_uart_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -876,6 +896,11 @@
           <GroupName>others/src/app</GroupName>
           <Files>
             <File>
+              <FileName>Remote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../others/src/app/Remote.c</FilePath>
+            </File>
+            <File>
               <FileName>motor_dm.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../others/src/app/motor_dm.cpp</FilePath>
@@ -979,6 +1004,11 @@
               <FileName>motor_dm.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>../others/inc/app/motor_dm.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Remote.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../others/inc/app/Remote.h</FilePath>
             </File>
             <File>
               <FileName>bsp_can.hpp</FileName>

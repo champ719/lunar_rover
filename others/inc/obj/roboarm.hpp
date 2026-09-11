@@ -84,7 +84,7 @@ class Joint : public Motor_DM
 		Bsp_CAN& hcan_, const Joint_N::target_s& target_, const Joint_N::angle_limit_s& angle_limit_,
 		const float offset_, const Joint_N::param_s& pid_param_, const Joint_N::plan_s& plan_)
 		: Motor_DM(host_id_, motor_id_, facs_, hcan_), target(target_), angle(angle_limit_), offset(offset_),
-		pos_relative(0.f), param{pid_param_}, plan(plan_), inited(false)
+		pos_relative(0.f), pos_wrapped_last(0.f), pos_unwrapped(0.f), param{pid_param_}, plan(plan_), inited(false)
 	{}
 	void UpdateInfo(const uint8_t* data_);
 	void UpdateTarget(float delta_pos_);
@@ -98,6 +98,8 @@ class Joint : public Motor_DM
 	const Joint_N::angle_limit_s angle;
 	const float offset;
 	float pos_relative;  // relative to offset
+	float pos_wrapped_last;
+	float pos_unwrapped;
 	Joint_N::param_s param;
 	Joint_N::plan_s plan;
 	bool inited;

@@ -6,13 +6,20 @@
 void Joint::UpdateInfo(const uint8_t* data_)
 {
 	Update(data_);
-	pos_relative = pos - offset;
 	if (!inited)
 	{
+		pos_unwrapped = UnwrapRadNear(pos, offset);
+		pos_wrapped_last = pos;
+		pos_relative = pos_unwrapped - offset;
+		LimitSelf(target.pos, angle.pos_max, angle.pos_min);
 		plan.vel = 0.f;
-		plan.pos = pos;
+		plan.pos = pos_unwrapped;
 		inited = true;
+		return;
 	}
+	pos_unwrapped += RadDiff(pos, pos_wrapped_last);
+	pos_wrapped_last = pos;
+	pos_relative = pos_unwrapped - offset;
 }
 
 /* update target pos from remote control every 14ms */
@@ -41,21 +48,21 @@ void Joint::LoadTarget()
 	{
 		plan.vel = 0.f;
 		plan.pos = target.pos;
-		Ctrl(plan.pos, plan.vel, param.kp_pos, param.kp_vel, 0);
+		Ctrl(WrapRad(plan.pos), plan.vel, param.kp_pos, param.kp_vel, 0);
 		return;
 	}
 	const float polarity = Sign(pos_diff);
 	const float vel_planed = Limit(polarity * Sqrt(2 * plan.accel_max * diff_abs), plan.vel_max);
 	plan.vel += Limit(vel_planed - plan.vel, plan.accel_max * 0.002f);  // about 500Hz
 	LimitSelf(plan.vel, plan.vel_max);
-	plan.pos = Limit(plan.pos + plan.vel * 0.002f, pos + 0.1f, pos - 0.1f);
+	plan.pos = Limit(plan.pos + plan.vel * 0.002f, pos_unwrapped + 0.1f, pos_unwrapped - 0.1f);
 	LimitSelf(plan.pos, angle.pos_max, angle.pos_min);
 	// if (diff_abs < param.sep_pos && Abs(vel) < param.sep_vel)
 	// {
 	// 	param.int_pos += param.ki_pos * pos_diff;
 	// }
 	// param.int_pos = Limit(param.int_pos, param.int_max);
-	Ctrl(plan.pos, plan.vel, param.kp_pos, param.kp_vel, 0);
+	Ctrl(WrapRad(plan.pos), plan.vel, param.kp_pos, param.kp_vel, 0);
 }
 
 /* follow the target pos and vel planned by Robo_Arm */
@@ -67,7 +74,7 @@ void Joint::Follow() const
 		Ctrl(Motor_DM_N::order_byte_e::enable);
 		return;
 	}
-	Ctrl(plan.pos, plan.vel, param.kp_pos, param.kp_vel, 0);
+	Ctrl(WrapRad(plan.pos), plan.vel, param.kp_pos, param.kp_vel, 0);
 }
 
 /* return to home position */

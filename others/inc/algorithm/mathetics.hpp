@@ -5,6 +5,8 @@
 namespace Math_N
 {
 	inline constexpr float dig_to_rad = 0.0174533f;
+	inline constexpr float pi = 3.14159265f;
+	inline constexpr float two_pi = 2.f * pi;
 }
 [[gnu::always_inline]] inline float Abs(const float value) { return fabsf(value); }
 
@@ -52,4 +54,14 @@ inline float DeadZone(const float val, const float dead_zone)
 
 [[gnu::always_inline]] inline float Sqrt(const float value) { return value > 0.f ? sqrtf(value) : 0.f; }  // vsqrt.f32
 
-inline float RadDiff(const float _q1, const float _q2) { return Clamp(_q1 - _q2, 3.14159f, -3.14159f); }
+[[gnu::always_inline]] inline float WrapRad(const float value)
+{
+	return Clamp(value, Math_N::pi, -Math_N::pi);
+}
+
+[[gnu::always_inline]] inline float UnwrapRadNear(const float value, const float reference)
+{
+	return reference + WrapRad(value - reference);
+}
+
+inline float RadDiff(const float _q1, const float _q2) { return WrapRad(_q1 - _q2); }

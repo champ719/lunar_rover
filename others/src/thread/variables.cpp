@@ -1,4 +1,5 @@
 #include "bsp_tim.hpp"
+#include "mathetics.hpp"
 #include "roboarm.hpp"
 
 /* 
@@ -24,32 +25,33 @@ constexpr Motor_DM_N::param_factor_s dm4310p = Motor_DM_N::FacZoom(3.14159f, 30.
 constexpr Motor_DM_N::param_factor_s dm8009p = Motor_DM_N::FacZoom(3.14159f, 45.f, 54.f);
 
 __attribute__((used)) Joint j1_left(0x11, 0x01, dm8009p, abc_can3,
-	{1.44042873f}, {3.f, -3.f}, 1.44042873f,
+	{1.44042873f}, {Math_N::two_pi - 2.8f, -1.7f}, 1.44042873f,
 	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, 1.44042873f});
 
 __attribute__((used)) Joint j2_left(0x12, 0x02, dm8009p, abc_can3,
-	{-0.01715076f}, {3.f, -3.f}, -0.51715076f,
+	{1.8f}, {Math_N::two_pi - 2.4f, 1.75f}, 1.8f,
 	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
-	{6.f, 2.f, 0.f, -0.51715076f});
+	{6.f, 2.f, 0.f, 1.8f});
 
 __attribute__((used)) Joint j3_left(0x13, 0x03, dm4340p, abc_can3,
-	{-0.0510056764f}, {3.f, -3.f}, -0.0510056764f,
+	{-0.0510056764f}, {0.99f, -Math_N::pi}, -0.0510056764f,
 	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, -0.0510056764f});
 
 __attribute__((used)) Joint j4_left(0x14, 0x04, dm4310p, abc_can3,
-	{-1.64398444f}, {3.f, -3.f}, -1.14398444,
+	{Math_N::two_pi - 1.64398444f}, {Math_N::two_pi - 0.15f, 0.8f},
+	Math_N::two_pi - 1.14398444f,
 	{0, 0, 0.2f, 5.f, 2.f, 0.5f, 0.f},
-	{6.f, 2.f, 0.f, -1.14398444f});
+	{6.f, 2.f, 0.f, Math_N::two_pi - 1.14398444f});
 
 __attribute__((used)) Joint j5_left(0x15, 0x05, dm4310, abc_can3,
-	{0.0774672702f}, {3.f, -3.f}, 0.0774672702f,
+	{0.0774672702f}, {1.f, -2.6f}, 0.0774672702f,
 	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, 0.0774672702f});
 
 __attribute__((used)) Joint j6_left(0x16, 0x06, dm4310, abc_can3,
-	{-0.00671127299f}, {3.f, -3.f}, -0.00671127299f,
+	{-0.00671127299f}, {1.8f, 2.85f - Math_N::two_pi}, -0.00671127299f,
 	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, -0.00671127299f});
 

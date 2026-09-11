@@ -17,44 +17,43 @@ Timebase_Timer micro_base;
 /* Match MX_FDCAN3_Init(): standard-ID classic CAN frames for DAMIAO motors. */
 Bsp_CAN abc_can3(&hfdcan3, false, true, true);
 
-constexpr Motor_DM_N::param_factor_s j3507 = Motor_DM_N::FacZoom(6.28319f, 30.f, 10.f);
-constexpr Motor_DM_N::param_factor_s j4340_limited = Motor_DM_N::FacZoom(3.14159f, 10.f, 28.f);
-constexpr Motor_DM_N::param_factor_s j4340_unlimited = Motor_DM_N::FacZoom(6.28319f, 10.f, 28.f);
-constexpr Motor_DM_N::param_factor_s j4310_unlimited = Motor_DM_N::FacZoom(6.28319f, 30.f, 10.f);
-constexpr Motor_DM_N::param_factor_s j4310_limited = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
-constexpr Motor_DM_N::param_factor_s j8009p_limited = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
+constexpr Motor_DM_N::param_factor_s dm3507 = Motor_DM_N::FacZoom(3.14159f, 50.f, 5.f);
+constexpr Motor_DM_N::param_factor_s dm4340p = Motor_DM_N::FacZoom(3.14159f, 10.f, 28.f);
+constexpr Motor_DM_N::param_factor_s dm4310 = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
+constexpr Motor_DM_N::param_factor_s dm4310p = Motor_DM_N::FacZoom(3.14159f, 30.f, 10.f);
+constexpr Motor_DM_N::param_factor_s dm8009p = Motor_DM_N::FacZoom(3.14159f, 45.f, 54.f);
 
-__attribute__((used)) Joint j1_left(0x11, 0x01, j4340_limited, abc_can3,
+__attribute__((used)) Joint j1_left(0x11, 0x01, dm8009p, abc_can3,
 	{1.44042873f}, {3.f, -3.f}, 1.44042873f,
 	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, 1.44042873f});
 
-__attribute__((used)) Joint j2_left(0x12, 0x02, j4340_limited, abc_can3,
+__attribute__((used)) Joint j2_left(0x12, 0x02, dm8009p, abc_can3,
 	{-0.01715076f}, {3.f, -3.f}, -0.51715076f,
 	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, -0.51715076f});
 
-__attribute__((used)) Joint j3_left(0x13, 0x03, j4340_unlimited, abc_can3,
+__attribute__((used)) Joint j3_left(0x13, 0x03, dm4340p, abc_can3,
 	{-0.0510056764f}, {3.f, -3.f}, -0.0510056764f,
 	{0, 0, 0.f, 0.f, 0.f, 0.f, 0.f},
 	{6.f, 2.f, 0.f, -0.0510056764f});
 
-__attribute__((used)) Joint j4_left(0x14, 0x04, j4340_unlimited, abc_can3,
+__attribute__((used)) Joint j4_left(0x14, 0x04, dm4310p, abc_can3,
 	{-1.64398444f}, {3.f, -3.f}, -1.14398444,
 	{0, 0, 0.2f, 5.f, 2.f, 0.5f, 0.f},
 	{6.f, 2.f, 0.f, -1.14398444f});
 
-__attribute__((used)) Joint j5_left(0x15, 0x05, j4310_unlimited, abc_can3,
+__attribute__((used)) Joint j5_left(0x15, 0x05, dm4310, abc_can3,
 	{0.0774672702f}, {3.f, -3.f}, 0.0774672702f,
 	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, 0.0774672702f});
 
-__attribute__((used)) Joint j6_left(0x16, 0x06, j4310_unlimited, abc_can3,
+__attribute__((used)) Joint j6_left(0x16, 0x06, dm4310, abc_can3,
 	{-0.00671127299f}, {3.f, -3.f}, -0.00671127299f,
 	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, -0.00671127299f});
 
-__attribute__((used)) Joint j7_left(0x17, 0x07, j4310_unlimited, abc_can3,
+__attribute__((used)) Joint j7_left(0x17, 0x07, dm3507, abc_can3,
 	{-0.00671127299f}, {3.f, -3.f}, -0.00671127299f,
 	{0, 0, 0.2f, 2.f, 3.2f, 0.2f, 0.f},
 	{6.f, 2.f, 0.f, -0.00671127299f});

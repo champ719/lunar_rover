@@ -1436,7 +1436,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd.h)(0x6A9EB377)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_usb.h)(0x6A9EB377)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h)(0x6A9EB377)
 F (../others/src/callcallback/can_callback.cpp)(0x6AA3A0AA)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Drivers/CMSIS/RTOS2/Include -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../others/inc -I ../others/inc/algorithm -I ../others/inc/app -I ../others/inc/bsp -I ../others/inc/modules -I ../others/inc/obj -I ../others/inc/thread -I ../Middlewares/FreeRTOS_Port/ARM_CM4F -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I./RTE/_lunar_rover-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.2.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o lunar_rover/can_callback.o -MMD)
-I (..\others\inc\obj\roboarm.hpp)(0x6AA82250)
+I (..\others\inc\obj\roboarm.hpp)(0x6AA8265E)
 I (..\others\inc\app\motor_dm.hpp)(0x69BFBCCD)
 I (..\others\inc\bsp\bsp_can.hpp)(0x6A9EC2C9)
 I (..\Core\Inc\fdcan.h)(0x6A9A8C2B)
@@ -1474,7 +1474,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd.h)(0x6A9EB377)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_usb.h)(0x6A9EB377)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h)(0x6A9EB377)
 F (../others/src/obj/roboarm.cpp)(0x6AA6561F)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Drivers/CMSIS/RTOS2/Include -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../others/inc -I ../others/inc/algorithm -I ../others/inc/app -I ../others/inc/bsp -I ../others/inc/modules -I ../others/inc/obj -I ../others/inc/thread -I ../Middlewares/FreeRTOS_Port/ARM_CM4F -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I./RTE/_lunar_rover-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.2.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o lunar_rover/roboarm.o -MMD)
-I (..\others\inc\obj\roboarm.hpp)(0x6AA82250)
+I (..\others\inc\obj\roboarm.hpp)(0x6AA8265E)
 I (..\others\inc\app\motor_dm.hpp)(0x69BFBCCD)
 I (..\others\inc\bsp\bsp_can.hpp)(0x6A9EC2C9)
 I (..\Core\Inc\fdcan.h)(0x6A9A8C2B)
@@ -1514,7 +1514,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h)(0x6A9EB377)
 I (..\others\inc\algorithm\mathetics.hpp)(0x6AA42173)
 F (..\others\src\obj\roboarm_kinematics.cpp)(0x6AA7F6FC)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Drivers/CMSIS/RTOS2/Include -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../others/inc -I ../others/inc/algorithm -I ../others/inc/app -I ../others/inc/bsp -I ../others/inc/modules -I ../others/inc/obj -I ../others/inc/thread -I ../Middlewares/FreeRTOS_Port/ARM_CM4F -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I./RTE/_lunar_rover-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.2.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o lunar_rover/roboarm_kinematics.o -MMD)
 I (..\others\inc\obj\roboarm_kinematics.hpp)(0x6AA7B353)
-I (..\others\inc\obj\roboarm.hpp)(0x6AA82250)
+I (..\others\inc\obj\roboarm.hpp)(0x6AA8265E)
 I (..\others\inc\app\motor_dm.hpp)(0x69BFBCCD)
 I (..\others\inc\bsp\bsp_can.hpp)(0x6A9EC2C9)
 I (..\Core\Inc\fdcan.h)(0x6A9A8C2B)
@@ -1554,7 +1554,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h)(0x6A9EB377)
 F (../others/src/thread/task_error.cpp)(0x6A9A8D2F)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Drivers/CMSIS/RTOS2/Include -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../others/inc -I ../others/inc/algorithm -I ../others/inc/app -I ../others/inc/bsp -I ../others/inc/modules -I ../others/inc/obj -I ../others/inc/thread -I ../Middlewares/FreeRTOS_Port/ARM_CM4F -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I./RTE/_lunar_rover-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.2.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o lunar_rover/task_error.o -MMD)
 I (..\others\inc\thread\threads.hpp)(0x6A9E758C)
 I (..\Drivers\CMSIS\RTOS2\Include\cmsis_os2.h)(0x6A9EB377)
-I (..\others\inc\obj\roboarm.hpp)(0x6AA82250)
+I (..\others\inc\obj\roboarm.hpp)(0x6AA8265E)
 I (..\others\inc\app\motor_dm.hpp)(0x69BFBCCD)
 I (..\others\inc\bsp\bsp_can.hpp)(0x6A9EC2C9)
 I (..\Core\Inc\fdcan.h)(0x6A9A8C2B)
@@ -1594,7 +1594,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h)(0x6A9EB377)
 F (../others/src/thread/task_robo_arm.cpp)(0x6AA6628E)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O3 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Drivers/CMSIS/RTOS2/Include -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../others/inc -I ../others/inc/algorithm -I ../others/inc/app -I ../others/inc/bsp -I ../others/inc/modules -I ../others/inc/obj -I ../others/inc/thread -I ../Middlewares/FreeRTOS_Port/ARM_CM4F -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I./RTE/_lunar_rover-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.2.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o lunar_rover/task_robo_arm.o -MMD)
 I (..\others\inc\thread\threads.hpp)(0x6A9E758C)
 I (..\Drivers\CMSIS\RTOS2\Include\cmsis_os2.h)(0x6A9EB377)
-I (..\others\inc\obj\roboarm.hpp)(0x6AA82250)
+I (..\others\inc\obj\roboarm.hpp)(0x6AA8265E)
 I (..\others\inc\app\motor_dm.hpp)(0x69BFBCCD)
 I (..\others\inc\bsp\bsp_can.hpp)(0x6A9EC2C9)
 I (..\Core\Inc\fdcan.h)(0x6A9A8C2B)
@@ -1706,7 +1706,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd.h)(0x6A9EB377)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_usb.h)(0x6A9EB377)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h)(0x6A9EB377)
 I (..\others\inc\algorithm\mathetics.hpp)(0x6AA42173)
-I (..\others\inc\obj\roboarm.hpp)(0x6AA82250)
+I (..\others\inc\obj\roboarm.hpp)(0x6AA8265E)
 I (..\others\inc\app\motor_dm.hpp)(0x69BFBCCD)
 I (..\others\inc\bsp\bsp_can.hpp)(0x6A9EC2C9)
 I (..\Core\Inc\fdcan.h)(0x6A9A8C2B)
@@ -1723,7 +1723,7 @@ F (../others/inc/app/motor_dm.hpp)(0x69BFBCCD)()
 F (../others/inc/app/Remote.h)(0x6AA42173)()
 F (../others/inc/bsp/bsp_can.hpp)(0x6A9EC2C9)()
 F (../others/inc/bsp/bsp_tim.hpp)(0x6A9A8732)()
-F (../others/inc/obj/roboarm.hpp)(0x6AA82250)()
+F (../others/inc/obj/roboarm.hpp)(0x6AA8265E)()
 F (../others/inc/thread/threads.hpp)(0x6A9E758C)()
 F (../USB_DEVICE/App/usb_device.c)(0x69BFBD7B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Drivers/CMSIS/RTOS2/Include -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../others/inc -I ../others/inc/algorithm -I ../others/inc/app -I ../others/inc/bsp -I ../others/inc/modules -I ../others/inc/obj -I ../others/inc/thread -I ../Middlewares/FreeRTOS_Port/ARM_CM4F -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F-I./RTE/_lunar_rover-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/6.2.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32H723xx -D_RTE_ -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx-o lunar_rover/usb_device.o -MMD)
 I (..\USB_DEVICE\App\usb_device.h)(0x69BFBD7B)

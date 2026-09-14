@@ -50,6 +50,7 @@
 "lunar_rover\bsp_can.o"
 "lunar_rover\can_callback.o"
 "lunar_rover\roboarm.o"
+"lunar_rover\roboarm_kinematics.o"
 "lunar_rover\task_error.o"
 "lunar_rover\task_robo_arm.o"
 "lunar_rover\task_start.o"

@@ -935,6 +935,11 @@
               <FileType>8</FileType>
               <FilePath>../others/src/obj/roboarm.cpp</FilePath>
             </File>
+            <File>
+              <FileName>roboarm_kinematics.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\others\src\obj\roboarm_kinematics.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

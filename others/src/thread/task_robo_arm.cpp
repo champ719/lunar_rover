@@ -1,5 +1,6 @@
 #include "threads.hpp"
 #include "roboarm.hpp"
+#include "roboarm_kinematics.hpp"
 
 
 extern Joint j1_left;
@@ -9,6 +10,8 @@ extern Joint j4_left;
 extern Joint j5_left;
 extern Joint j6_left;
 extern Joint j7_left;
+
+extern RoboArmJointAngles robo_arm_kin;
 
 
 /* implements the CubeMX "roboARM" thread (weak stub in freertos.c) */
@@ -53,6 +56,7 @@ void roboARM_task(void *argument)
 		j5_left.LoadTarget();
 		j6_left.LoadTarget();
 		j7_left.LoadTarget();
+		robo_arm_kin.Update();  // 解算各关节转轴相对基座 z 轴的倾角，写回 Joint::angle.base
 		osDelay(1);
 	}
 }

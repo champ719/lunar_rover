@@ -10,29 +10,18 @@ void Joint::UpdateInfo(const uint8_t* data_)
 	{
 		pos_unwrapped = UnwrapRadNear(pos, offset);
 		pos_wrapped_last = pos;
-		pos_relative = pos_unwrapped - offset;
-		LimitSelf(target.pos, angle.pos_max, angle.pos_min);
+		LimitSelf(target.pos, angle_limit.pos_max, angle_limit.pos_min);
 		plan.vel = 0.f;
 		plan.pos = pos_unwrapped;
 		inited = true;
-		return;
 	}
-	pos_unwrapped += RadDiff(pos, pos_wrapped_last);
-	pos_wrapped_last = pos;
-	pos_relative = pos_unwrapped - offset;
+	else
+	{
+		pos_unwrapped += RadDiff(pos, pos_wrapped_last);
+		pos_wrapped_last = pos;
+	}
+	angle.theta = mdh.theta_offset + pos_unwrapped - offset;
 }
-
-/* update target pos from remote control every 14ms */
-void Joint::UpdateTarget(const float delta_pos_)
-{
-	target.pos = Limit(target.pos + delta_pos_ * 0.001f, angle.pos_max, angle.pos_min);
-}
-
-// void JOINT::UpdateTarget(const bool polarity_)
-// {
-// 	if (polarity_) target.pos = angle.offset + 0.05f;
-// 	else target.pos = angle.offset - 0.05f;
-// }
 
 /* load target in roboarm ctrl task every 2ms */
 void Joint::LoadTarget()
@@ -56,36 +45,13 @@ void Joint::LoadTarget()
 	plan.vel += Limit(vel_planed - plan.vel, plan.accel_max * 0.002f);  // about 500Hz
 	LimitSelf(plan.vel, plan.vel_max);
 	plan.pos = Limit(plan.pos + plan.vel * 0.002f, pos_unwrapped + 0.1f, pos_unwrapped - 0.1f);
-	LimitSelf(plan.pos, angle.pos_max, angle.pos_min);
+	LimitSelf(plan.pos, angle_limit.pos_max, angle_limit.pos_min);
 	// if (diff_abs < param.sep_pos && Abs(vel) < param.sep_vel)
 	// {
 	// 	param.int_pos += param.ki_pos * pos_diff;
 	// }
 	// param.int_pos = Limit(param.int_pos, param.int_max);
 	Ctrl(WrapRad(plan.pos), plan.vel, param.kp_pos, param.kp_vel, 0);
-}
-
-/* follow the target pos and vel planned by Robo_Arm */
-/* TODO: reset target and plan when shifting mode */
-void Joint::Follow() const
-{
-	if (!inited)
-	{
-		Ctrl(Motor_DM_N::order_byte_e::enable);
-		return;
-	}
-	Ctrl(WrapRad(plan.pos), plan.vel, param.kp_pos, param.kp_vel, 0);
-}
-
-/* return to home position */
-void Joint::ReturnHomePos()
-{
-	if (!inited)
-	{
-		Ctrl(Motor_DM_N::order_byte_e::enable);
-		return;
-	}
-	target.pos = offset;
 }
 
 void Gripper::UpdateInfo(const uint8_t* data_)

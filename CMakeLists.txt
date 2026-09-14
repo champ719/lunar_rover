@@ -54,6 +54,7 @@ set(USER_SOURCES
     others/src/bsp/bsp_can.cpp
     others/src/callcallback/can_callback.cpp
     others/src/obj/roboarm.cpp
+    others/src/obj/roboarm_kinematics.cpp
     others/src/thread/task_error.cpp
     others/src/thread/task_robo_arm.cpp
     others/src/thread/task_start.cpp

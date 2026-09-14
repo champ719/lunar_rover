@@ -1,8 +1,8 @@
-lunar_rover/task_robo_arm.o: ..\others\src\thread\task_robo_arm.cpp \
-  ..\others\inc\thread\threads.hpp \
-  ..\Drivers\CMSIS\RTOS2\Include\cmsis_os2.h \
-  ..\others\inc\obj\roboarm.hpp ..\others\inc\app\motor_dm.hpp \
-  ..\others\inc\bsp\bsp_can.hpp ..\Core\Inc\fdcan.h ..\Core\Inc\main.h \
+lunar_rover/roboarm_kinematics.o: \
+  ..\others\src\obj\roboarm_kinematics.cpp \
+  ..\others\inc\obj\roboarm_kinematics.hpp ..\others\inc\obj\roboarm.hpp \
+  ..\others\inc\app\motor_dm.hpp ..\others\inc\bsp\bsp_can.hpp \
+  ..\Core\Inc\fdcan.h ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
@@ -34,5 +34,4 @@ lunar_rover/task_robo_arm.o: ..\others\src\thread\task_robo_arm.cpp \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_ll_usb.h \
-  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h \
-  ..\others\inc\obj\roboarm_kinematics.hpp
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pcd_ex.h

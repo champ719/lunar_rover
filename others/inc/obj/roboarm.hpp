@@ -33,6 +33,13 @@ namespace Joint_N
 		float sep_pos;
 		float integral;
 	};
+
+	/* 统一存放关节的角度信息 */
+	struct angle_s
+	{
+		float theta;  // 关节角 θ = mdh.theta_offset + (编码器连续角 - offset)
+		float base;   // 连杆在基座系下与基座 z 轴的倾角（由运动学解算写入）
+	};
 }
 
 namespace Gripper_N
@@ -63,18 +70,26 @@ namespace RoboArm_N
 		float a;  // i - 1
 		float theta_offset;
 		float d;  // i
+		float axis[3];  // 该关节对应连杆在自身局部坐标系中的方向向量（单位向量：x/y/z）
 	};
 
 	inline constexpr std::array<mdh_param_s, 7> mdh_left
 	{{
-		{0.f, 0.f, 0.f, 0.f},
-		{0.f, 0.f, 0.f, 0.f},
-		{0.f, 0.f, 0.f, 0.f},
-		{0.f, 0.f, 0.f, 0.f},
-		{0.f, 0.f, 0.f, 0.f},
-		{0.f, 0.f, 0.f, 0.f},
-		{0.f, 0.f, 0.f, 0.f}
-	}};
+		{0.f, 0.f, 0.f, 0.f, 
+			{0.f, 0.f, 1.f}},             
+		{1.57080f, 0.f, 2.65289f, 0.f, 
+			{1.f, 0.f, 0.f}},    
+		{3.14159f, 0.f, 4.22348f, 0.f, 
+			{0.f, -1.f, 0.f}},    
+		{1.57080f, 0.f, 3.14159f, 0.f, 
+			{0.f, 0.f, 1.f}},        
+		{1.57080f, 0.f, 4.57276f, 0.f, 
+			{0.f, 1.f, 0.f}},   
+		{1.57080f, 0.f, 0.f, 0.f, 
+			{0.f, 0.f, 1.f}},         
+		{0.f, 0.f, 0.f, 0.f, 
+			{0.f, 0.f, 1.f}}               
+	 }};
 }
 
 class Joint : public Motor_DM
@@ -82,22 +97,23 @@ class Joint : public Motor_DM
 	public:
 	explicit Joint(const uint8_t host_id_, const uint8_t motor_id_, const Motor_DM_N::param_factor_s& facs_,
 		Bsp_CAN& hcan_, const Joint_N::target_s& target_, const Joint_N::angle_limit_s& angle_limit_,
-		const float offset_, const Joint_N::param_s& pid_param_, const Joint_N::plan_s& plan_)
-		: Motor_DM(host_id_, motor_id_, facs_, hcan_), target(target_), angle(angle_limit_), offset(offset_),
-		pos_relative(0.f), pos_wrapped_last(0.f), pos_unwrapped(0.f), param{pid_param_}, plan(plan_), inited(false)
+		const float offset_, const RoboArm_N::mdh_param_s& mdh_,
+		const Joint_N::param_s& pid_param_, const Joint_N::plan_s& plan_)
+		: Motor_DM(host_id_, motor_id_, facs_, hcan_), angle{}, target(target_), angle_limit(angle_limit_),
+		offset(offset_), mdh(mdh_), pos_wrapped_last(0.f), pos_unwrapped(0.f),
+		param{pid_param_}, plan(plan_), inited(false)
 	{}
 	void UpdateInfo(const uint8_t* data_);
-	void UpdateTarget(float delta_pos_);
-	// void UpdateTarget(bool polarity_);
 	void LoadTarget();
-	void Follow() const;
-	void ReturnHomePos();
+
+	Joint_N::angle_s angle;                                    // 角度信息：theta + base
+	const RoboArm_N::mdh_param_s& Mdh() const { return mdh; }  // 改进 DH 参数
 
 	private:
 	Joint_N::target_s target;
-	const Joint_N::angle_limit_s angle;
+	const Joint_N::angle_limit_s angle_limit;
 	const float offset;
-	float pos_relative;  // relative to offset
+	const RoboArm_N::mdh_param_s mdh;
 	float pos_wrapped_last;
 	float pos_unwrapped;
 	Joint_N::param_s param;
